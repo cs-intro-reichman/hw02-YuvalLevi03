@@ -8,64 +8,61 @@ import java.util.Random;
  *  Example usage: % java OneOfEachStats 1000 1
  */
 public class OneOfEachStats {
-	public static void main (String[] args) {
-		// Gets the two command-line arguments
-		int trials = Integer.parseInt(args[0]);
-		int seed = Integer.parseInt(args[1]);
-		// Initailizes a random numbers generator with the given seed value
+    public static void main (String[] args) {
+	// Gets the two command-line arguments
+	int trials = Integer.parseInt(args[0]);
+	int seed = Integer.parseInt(args[1]);
+	// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);
         boolean isGirl = false;
-		boolean isBoy = false;
-		double random;
-		int sum = 0;
-		int sum2 = 0;
-		int sum3 = 0;
-		int sum4 = 0;
-		int sumTotal = 0;
+	boolean isBoy = false;
+	double random;
+	int sum = 0;
+	int sumTotalChild = 0;
+	int count2 = 0;
+	int count3 = 0;
+	int count4 = 0;
 
-		for (int i = 1; i < (trials + 1); i++) {
-		 sum = 0;
-         isGirl = false;
-         isBoy = false;
-		     do { 
-              random = generator.nextDouble();
-              if (random < 0.5) {
-            	  isBoy = true;
-            	  sum += 1;
-                }
-              else {
-            	  isGirl = true;
-            	  sum += 1;
-                } 
-     	    }
-          while (! (isGirl && isBoy));
+	for (int i = 1; i < (trials + 1); i++) {
+	    sum = 0;                        // Reset variables before the inner loop
+            isGirl = false;
+            isBoy = false;
+	   do {                             // inner loop for a single family
+           random = generator.nextDouble();
+             if (random < 0.5) {
+               isBoy = true;
+               sum += 1;
+             } else {
+               isGirl = true;
+               sum += 1;
+             } 
+     	    } while (! (isGirl && isBoy));
 
-         sumTotal += sum;
-
-        switch (sum) {
-        case 2: sum2 += 1;
-        	break;
-        case 3: sum3 += 1;
-        	break;
-        default: sum4 += 1;
-
+          sumTotalChild += sum;             // Adding the current child count to the total sum
+          switch (sum) {                    // Adding 1 to the relevant familiy type count
+          case 2: count2 += 1;
+        	  break;
+          case 3: count3 += 1;
+        	  break;
+          default: count4 += 1;
+          }
         }
-        }
-        System.out.println("Average: " + ( (double) sumTotal / trials) + " children to get at least one of each gender.");
-        System.out.println("Number of families with 2 children: " + sum2);
-        System.out.println("Number of families with 3 children: " + sum3);
-        System.out.println("Number of families with 4 or more children: " + sum4);
-        int mostCommon = Math.max(sum2 , (Math.max(sum3 , sum4)));
+        System.out.println("Average: " + ( (double) sumTotalChild / trials) + 
+			   " children to get at least one of each gender.");
+        System.out.println("Number of families with 2 children: " + count2);
+        System.out.println("Number of families with 3 children: " + count3);
+        System.out.println("Number of families with 4 or more children: " + count4);
+	    
+        int mostCommon = Math.max(count2 , (Math.max(count3 , count4)));
         System.out.print("The most common number of children is ");
-          if (mostCommon == sum2) {
+          if (mostCommon == count2) {
             System.out.print("2.");
-        } else if (mostCommon == sum3) {
+          } else if (mostCommon == count3) {
             System.out.print("3.");
-        } else {
+          } else {
             System.out.print("4 or more.");
-        }
-
-	}  
+          }
+    }  
 }
 		
 		//// In the previous version of this program, you used a statement like:
