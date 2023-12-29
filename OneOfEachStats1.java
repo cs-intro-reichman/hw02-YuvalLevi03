@@ -55,7 +55,6 @@ public class OneOfEachStats1 {
           } else {
             System.out.print("4 or more.");
           }
-
     }  
 }
 
