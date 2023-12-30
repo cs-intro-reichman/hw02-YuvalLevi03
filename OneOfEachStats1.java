@@ -16,7 +16,7 @@ public class OneOfEachStats1 {
 	int count3 = 0;
 	int count4 = 0;
 
-	for (int i = 1; i < (trials + 1); i++) {
+	for (int i = 1 ; i < (trials + 1) ; i++) {
 	    sum = 0;                        // Reset variables before the inner loop
             isGirl = false;
             isBoy = false;
@@ -32,7 +32,7 @@ public class OneOfEachStats1 {
      	   } while (! (isGirl && isBoy));
 		
           sumTotalChild += sum;             // Adding the current child count to the total sum
-          switch (sum) {                    // Adding 1 to the relevant familiy type count
+          switch (sum) {                    // Adding 1 to the relevant family type count
           case 2: count2 += 1;
         	  break;
           case 3: count3 += 1;
