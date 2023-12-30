@@ -7,12 +7,12 @@ public class DamkaBoard {
 	String b = "";
 	String c = "";
 
-	for (int i = 1; i < (a + 1); i++) {
+	for (int i = 1 ; i < (a + 1) ; i++) {
 	     b += "* ";
 	     c += " *";
 	}
-	for (int i = 1; i < (a + 1); i++) {
-	     if (i % 2 ==0) {
+	for (int i = 1 ; i < (a + 1) ; i++) {
+	     if (i % 2 == 0) {
 	      System.out.println(c);
 	     } else {
 	      System.out.println(b);
