@@ -23,7 +23,7 @@ public class OneOfEachStats {
 	int count3 = 0;
 	int count4 = 0;
 
-	for (int i = 1; i < (trials + 1); i++) {
+	for (int i = 1 ; i < (trials + 1) ; i++) {
 	    sum = 0;                     // Reset variables before the inner loop
             isGirl = false;
             isBoy = false;
